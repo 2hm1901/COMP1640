@@ -7,6 +7,7 @@ function Navbar() {
     <div>
       <Link to={ROUTE_PATH.BLOG}>Blog</Link>
       <Link to={ROUTE_PATH.STUDENT_MANAGEMENT}>Student Management</Link>
+      <Link to={ROUTE_PATH.SIGNUP}>Sign Up</Link>
     </div>
   );
 }

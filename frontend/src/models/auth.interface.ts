@@ -8,6 +8,7 @@ export interface AuthInfo {
   lastName?: string;
   avatar?: string;
   role?: RoleEnum;
+  password?: string;
 }
 
 export interface AuthPayload {
