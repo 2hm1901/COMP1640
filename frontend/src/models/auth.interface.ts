@@ -2,13 +2,13 @@ import { RoleEnum } from "./app.interface";
 
 
 export interface AuthInfo {
-  id: number;
-  email?: string;
-  firstName?: string;
+  id?: number;
   lastName?: string;
-  avatar?: string;
-  role?: RoleEnum;
+  firstName?: string;
+  email?: string;
   password?: string;
+  avatar?: File;
+  role?: RoleEnum;
 }
 
 export interface AuthPayload {

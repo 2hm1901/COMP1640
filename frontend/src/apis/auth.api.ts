@@ -1,6 +1,7 @@
 import { AxiosResponse } from "axios";
 import { AuthInfo, AuthPayload } from "../models/auth.interface";
 import fetchAPI from "../utils/fetchApi";
+import createFormData from "../utils/formDataUtil";
 
 export const getAllUser = async (searchTerm: string) => {
     const response: AxiosResponse<AuthInfo[]> =
@@ -26,11 +27,20 @@ export const getUserById = async (id: number) => {
 };
 
 export const createUser = async (user: AuthInfo) => {
+  
+  // console.log("user" + user);
+  const formData = createFormData(user);
+
+  // console.log("formdata" + formData.get("avatar"));
+
     const response: AxiosResponse<string> =
     await fetchAPI.request({
         url: "/User/create-user",
         method: "post",
-        data: user,
+        headers: {
+          "Content-Type": "multipart/form-data"
+        },
+        data: formData,
     });
 
   return response.data;

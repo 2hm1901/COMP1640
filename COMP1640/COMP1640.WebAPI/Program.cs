@@ -39,6 +39,9 @@ app.UseCors();
 
 app.UseHttpsRedirection();
 
+//Enalbe static files from wwwroot
+app.UseStaticFiles();
+
 app.UseAuthorization();
 
 app.MapControllers();

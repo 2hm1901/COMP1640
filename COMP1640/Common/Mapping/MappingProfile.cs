@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Common.DTOs.UserDtos;
 using Common.ViewModels.InteractionVMs;
 using Common.ViewModels.StudentVMs;
 using Models.Accounts;
@@ -19,5 +20,7 @@ public class MappingProfile : Profile
         CreateMap<Account, StudentDetailVM>()
             .ForMember(dest => dest.FullName, opt => opt.MapFrom(src => src.FirstName + " " + src.LastName))
             .ForMember(dest => dest.TeacherName, opt => opt.MapFrom(src => src.Teacher.FirstName + " " + src.Teacher.LastName));
+
+        CreateMap<CreateUserDto, Account>();
     }
 }

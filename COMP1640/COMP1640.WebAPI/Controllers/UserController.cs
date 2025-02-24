@@ -37,7 +37,7 @@ public class UserController : Controller
 
     //Create user
     [HttpPost("create-user")]
-    public async Task<IActionResult> CreateUser([FromBody] CreateUserDto dto, IFormFile avatar)
+    public async Task<IActionResult> CreateUser([FromForm] CreateUserDto dto, [FromForm] IFormFile avatar)
     {
         if (dto.FirstName == null)
         {
@@ -58,15 +58,18 @@ public class UserController : Controller
 
         if (avatar != null && avatar.Length > 0)
         {
-            using (var memoryStream = new MemoryStream())
+            var filePath = Path.Combine("wwwroot/images", avatar.FileName);
+            using (var stream = new FileStream(filePath, FileMode.Create))
             {
-                await avatar.CopyToAsync(memoryStream);
-                dto.Avatar = memoryStream.ToArray();
+                await avatar.CopyToAsync(stream);
             }
+            dto.Avatar = $"/images/{avatar.FileName}"; // Store the relative path to the image
         }
+
         await _userService.CreateUser(dto);
         return Ok();
     }
+
 
     //Update user
     [HttpPut("update-user")]
