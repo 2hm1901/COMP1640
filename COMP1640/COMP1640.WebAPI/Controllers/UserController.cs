@@ -2,6 +2,7 @@
 using BusinessLogic;
 using Common.DTOs.UserDtos;
 using Common.ViewModels.UserVMs;
+using COMP1640.WebAPI.Services.Files;
 
 namespace COMP1640.WebAPI.Controllers;
 [Route("api/[controller]")]
@@ -9,10 +10,12 @@ namespace COMP1640.WebAPI.Controllers;
 public class UserController : Controller
 {
     private readonly UserService _userService;
+    private readonly IFileService _fileService;
 
-    public UserController(UserService userService)
+    public UserController(UserService userService, IFileService fileService)
     {
         _userService = userService;
+        _fileService = fileService;
     }
 
     //Get all users
@@ -56,15 +59,30 @@ public class UserController : Controller
             return BadRequest("Password cannot be empty");
         }
 
-        if (avatar != null && avatar.Length > 0)
+        // check xem no co phai la image khong
+        if (!_fileService.IsImageFile(avatar))
         {
-            var filePath = Path.Combine("wwwroot/images", avatar.FileName);
-            using (var stream = new FileStream(filePath, FileMode.Create))
-            {
-                await avatar.CopyToAsync(stream);
-            }
-            dto.Avatar = $"/images/{avatar.FileName}"; // Store the relative path to the image
+            return BadRequest("Avatar must be an image");
         }
+
+        // luu anh vao system
+        string avatarPath = await _fileService.SaveImageAsync(avatar, ImageSizeConstants.MaxWidthAvatar, ImageSizeConstants.MaxHeightAvatar);
+
+        // assign path
+        dto.Avatar = avatarPath;
+
+        // neu muon xoa anh
+        //await _fileService.DeleteImage(dto.Avatar);
+
+        //if (avatar != null && avatar.Length > 0)
+        //{
+        //    var filePath = Path.Combine("wwwroot/images", avatar.FileName);
+        //    using (var stream = new FileStream(filePath, FileMode.Create))
+        //    {
+        //        await avatar.CopyToAsync(stream);
+        //    }
+        //    dto.Avatar = $"/images/{avatar.FileName}"; // Store the relative path to the image
+        //}
 
         await _userService.CreateUser(dto);
         return Ok();

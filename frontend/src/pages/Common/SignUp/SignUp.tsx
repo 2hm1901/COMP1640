@@ -22,6 +22,8 @@ function SignUp() {
     avatar: undefined,
     id: 0,
   });
+  //For avatar preview
+  const [avatarPreview, setAvatarPreview] = useState<string | null>(null);
 
   // Handle input change
   // const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -30,7 +32,9 @@ function SignUp() {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value, files } = e.target;
     if (name === "avatar" && files) {
+      const file = files[0];
       setFormData({ ...formData, avatar: files[0] });
+      setAvatarPreview(URL.createObjectURL(file));
     } else {
       setFormData({ ...formData, [name]: value });
     }
@@ -124,7 +128,11 @@ function SignUp() {
                 className="w-full h-full opacity-0"
                 onChange={handleChange}
               />
-              <img src={upload} alt="upload" className="h-10 w-auto" />
+              {avatarPreview ? (
+                <img src={avatarPreview} alt="avatar preview" className="h-40 w-auto" />
+              ) : (
+                <img src={upload} alt="upload" className="h-10 w-auto" />
+              )}
             </div>
             <div className="flex items-center justify-between">
               <div className="flex items-center">

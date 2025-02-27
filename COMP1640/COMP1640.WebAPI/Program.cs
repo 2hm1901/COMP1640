@@ -1,5 +1,6 @@
 using BusinessLogic;
 using Common;
+using COMP1640.WebAPI.Services.Files;
 using DataAccess;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,6 +15,8 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddBLL();
 builder.Services.AddDAL(builder.Configuration);
 builder.Services.AddCommon();
+
+builder.Services.AddScoped<IFileService, FileService>();
 
 builder.Services.AddCors(options =>
 {
