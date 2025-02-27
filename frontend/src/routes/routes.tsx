@@ -3,6 +3,7 @@ import { ROUTE_PATH } from "./route-path";
 import DefaultLayout from "../layouts/DefaultLayout";
 import Blog from "../pages/Common/Blog/Blog";
 import StudentManagement from "../pages/Staff/StudentManagement/StudentManagement";
+import Chat from "../pages/Common/Chat/Chat"
 
 const router = createBrowserRouter([
   {
@@ -17,6 +18,10 @@ const router = createBrowserRouter([
         path: ROUTE_PATH.STUDENT_MANAGEMENT,
         element: <StudentManagement />,
       },
+      {
+        path: ROUTE_PATH.CHAT,
+        element: <Chat />,
+      }
     ],
   },
 ]);
