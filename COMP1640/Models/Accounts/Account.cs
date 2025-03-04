@@ -11,6 +11,8 @@ public class Account : BaseModel
     public string Email { get; set; }
     public string Password { get; set; }
     public string Avatar { get; set; }
+    public string? RefreshToken { get; set; }
+    public DateTime RefreshTokenExpiryTime { get; set; }
 
     // Vai trò của tài khoản (STAFF, TEACHER, STUDENT)
     public Role Role { get; set; }

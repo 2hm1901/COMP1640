@@ -1,7 +1,9 @@
 using BusinessLogic;
 using Common;
 using COMP1640.WebAPI.Services.Files;
+using COMP1640.WebAPI.Services.Token;
 using DataAccess;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -50,3 +52,7 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
+//For Log In
+//builder.Services.AddDbContext<AppDbContext>(opts => opts.UseSqlServer(builder.Configuration["ConnectionString:UserDB"]));
+builder.Services.AddTransient<ITokenService, TokenService>();

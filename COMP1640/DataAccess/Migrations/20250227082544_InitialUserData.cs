@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace DataAccess.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class InitialUserData : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -22,6 +22,8 @@ namespace DataAccess.Migrations
                     Email = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: true),
                     Password = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: true),
                     Avatar = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    RefreshToken = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    RefreshTokenExpiryTime = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Role = table.Column<int>(type: "int", nullable: false),
                     AccountStatus = table.Column<int>(type: "int", nullable: false),
                     TeacherId = table.Column<int>(type: "int", nullable: true),
