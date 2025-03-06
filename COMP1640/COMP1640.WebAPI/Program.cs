@@ -20,6 +20,8 @@ builder.Services.AddCommon();
 
 builder.Services.AddScoped<IFileService, FileService>();
 
+builder.Services.AddTransient<ITokenService, TokenService>();
+
 builder.Services.AddCors(options =>
 {
     options.AddDefaultPolicy(policy =>
@@ -30,6 +32,9 @@ builder.Services.AddCors(options =>
                    .AllowAnyHeader();
     });
 });
+
+builder.Logging.ClearProviders();
+builder.Logging.AddConsole();
 
 var app = builder.Build();
 
@@ -44,7 +49,7 @@ app.UseCors();
 
 app.UseHttpsRedirection();
 
-//Enalbe static files from wwwroot
+// Enable static files from wwwroot
 app.UseStaticFiles();
 
 app.UseAuthorization();
@@ -52,7 +57,3 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
-
-//For Log In
-//builder.Services.AddDbContext<AppDbContext>(opts => opts.UseSqlServer(builder.Configuration["ConnectionString:UserDB"]));
-builder.Services.AddTransient<ITokenService, TokenService>();

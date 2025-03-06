@@ -8,22 +8,41 @@ namespace COMP1640.WebAPI.Services.Token
 {
     public class TokenService : ITokenService
     {
+        private readonly IConfiguration _configuration;
+
+        public TokenService(IConfiguration configuration)
+        {
+            _configuration = configuration;
+        }
         public string GenerateAccessToken(IEnumerable<Claim> claims)
         {
-            var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("superSecretKey@345"));
-            var signinCredentials = new SigningCredentials(secretKey, SecurityAlgorithms.HmacSha256);
+            //var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("superSecretKey@345"));
+            //var signinCredentials = new SigningCredentials(secretKey, SecurityAlgorithms.HmacSha256);
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
+            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
-            var tokeOptions = new JwtSecurityToken(
-                issuer: "https://localhost:7228;http://localhost:5091",
-                audience: "https://localhost:7228;http://localhost:5091",
+
+            //var tokeOptions = new JwtSecurityToken(
+            //    issuer: "https://localhost:7228;http://localhost:5091;http://localhost:5173",
+            //    audience: "https://localhost:7228;http://localhost:5091;http://localhost:5173",
+            //    claims: claims,
+            //    expires: DateTime.Now.AddMinutes(5),
+            //    signingCredentials: signinCredentials
+            //);
+
+            //var tokenString = new JwtSecurityTokenHandler().WriteToken(tokeOptions);
+            //return tokenString;
+
+            var token = new JwtSecurityToken(
+                issuer: _configuration["Jwt:Issuer"],
+                audience: _configuration["Jwt:Audience"],
                 claims: claims,
-                expires: DateTime.Now.AddMinutes(5),
-                signingCredentials: signinCredentials
-            );
+                expires: DateTime.Now.AddMinutes(double.Parse(_configuration["Jwt:AccessTokenExpirationMinutes"])),
+                signingCredentials: creds);
 
-            var tokenString = new JwtSecurityTokenHandler().WriteToken(tokeOptions);
-            return tokenString;
+            return new JwtSecurityTokenHandler().WriteToken(token);
         }
+        
 
         public string GenerateRefreshToken()
         {

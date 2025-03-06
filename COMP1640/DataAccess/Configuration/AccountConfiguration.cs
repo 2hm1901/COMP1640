@@ -6,7 +6,8 @@ using Models.Accounts;
 namespace DataAccess.Configuration;
 public sealed class AccountConfiguration : BaseModelConfiguration<Account>
 {
-    public override void Configure(EntityTypeBuilder<Account> builder)
+    public void Configure(EntityTypeBuilder<Account> builder)
+    //public override void Configure(EntityTypeBuilder<Account> builder)
     {
         base.Configure(builder);
 
@@ -19,6 +20,10 @@ public sealed class AccountConfiguration : BaseModelConfiguration<Account>
 
         builder.Property(p => p.Email).HasMaxLength(255);
         builder.Property(p => p.Password).HasMaxLength(200);
+
+        //Token
+        builder.Property(p => p.RefreshToken).HasMaxLength(256);
+        builder.Property(p => p.RefreshTokenExpiryTime).IsRequired();
 
         // Mối quan hệ
 

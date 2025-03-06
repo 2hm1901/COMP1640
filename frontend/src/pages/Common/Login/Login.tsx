@@ -5,9 +5,13 @@ import logo from "../../../assets/images/logo.png";
 import lock from "../../../assets/images/lock.png";
 import user from "../../../assets/images/user.png";
 import education from "../../../assets/images/Education.png";
+import { login } from "../../../apis/auth.api";
+import { useDispatch } from "react-redux";
+import { login as loginAction } from "../../../store/auth/auth.slice";
 
 function Login() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -17,18 +21,42 @@ function Login() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.email || !formData.password) {
       toast.error("Please enter all required fields!");
       return;
     }
 
-    // Simulate login process
-    if (formData.email === "test@gmail.com" && formData.password === "pass,123") {
-      toast.success("Welcome 'username'!");
-      navigate("/");
-    } else {
+    //Simulate login process
+    //if (formData.email === "test@gmail.com" && formData.password === "pass,123") {{
+    //toast.success(`Welcome 'username'!`);
+    //navigate("/");
+    //) else {
+    //toast.error("Invalid email or password!");
+    //}
+    try {
+      const response = await login(formData.email, formData.password);
+      if (response) {
+        toast.success(`Welcome ${response.data.email}!`);
+        // Store tokens in local storage or context
+        localStorage.setItem('accessToken', response.data.accessToken);
+        localStorage.setItem('refreshToken', response.data.refreshToken);
+        // Dispatch login action to update Redux store
+        dispatch(loginAction({
+          account: {
+            email: response.data.email,
+            password: response.data.password,
+          },
+          accessToken: response.data.accessToken,
+          refreshToken: response.data.refreshToken,
+        }));
+        navigate("/");
+      } else {
+        toast.error("Login failed. Please try again.");
+      }
+    } catch (error) {
+      console.error("Login failed: ", error);
       toast.error("Invalid email or password!");
     }
   };

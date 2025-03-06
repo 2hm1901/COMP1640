@@ -6,12 +6,9 @@ using System.Threading.Tasks;
 
 namespace Common.ViewModels.Authenticate
 {
-    public class AuthenticatedResponse
+    public class LogInModel
     {
-        public string? Token { get; set; }
-        public string? RefreshToken { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
-        public string Avatar { get; set; }
     }
 }

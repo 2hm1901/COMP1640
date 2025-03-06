@@ -3,6 +3,9 @@ using BusinessLogic;
 using Common.DTOs.UserDtos;
 using Common.ViewModels.UserVMs;
 using COMP1640.WebAPI.Services.Files;
+using COMP1640.WebAPI.Services.Token;
+using Common.ViewModels.Authenticate;
+using System.Security.Claims;
 
 namespace COMP1640.WebAPI.Controllers;
 [Route("api/[controller]")]
@@ -11,11 +14,13 @@ public class UserController : Controller
 {
     private readonly UserService _userService;
     private readonly IFileService _fileService;
+    private readonly ITokenService _tokenService;
 
-    public UserController(UserService userService, IFileService fileService)
+    public UserController(UserService userService, IFileService fileService, ITokenService tokenService)
     {
         _userService = userService;
         _fileService = fileService;
+        _tokenService = tokenService ?? throw new ArgumentNullException(nameof(tokenService));
     }
 
     //Get all users
@@ -85,7 +90,27 @@ public class UserController : Controller
         //}
 
         await _userService.CreateUser(dto);
-        return Ok();
+        //return Ok();
+
+        // Generate refresh token
+        var claims = new List<Claim>
+        {
+            new Claim(ClaimTypes.Name, dto.Email),
+            new Claim(ClaimTypes.Role, "User")
+        };
+        var refreshToken = _tokenService.GenerateRefreshToken();
+
+        // Save refresh token to the user (implementation not shown here)
+        var user = await _userService.AuthenticateUser(dto.Email, dto.Password);
+        await _userService.SaveRefreshToken(user.Id, refreshToken);
+
+        return Ok(new AuthenticatedResponse
+        {
+            Token = _tokenService.GenerateAccessToken(claims),
+            RefreshToken = refreshToken,
+            Email = user.Email,
+            Avatar = user.Avatar
+        });
     }
 
 
