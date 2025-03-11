@@ -15,4 +15,6 @@ export const ROUTE_PATH = {
     PROFILE: "/student/profile",
 
     // Tự custom thêm
+    STUDENT_DASHBOARD: "/student/dashboard",
+    TEACHER_DASHBOARD: "/teacher/dashboard",
 }
