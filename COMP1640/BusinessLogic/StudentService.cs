@@ -22,6 +22,10 @@ public class StudentService
     {
         IEnumerable<Account> students = [];
 
+        //var userId = dto.CurrentUserId;
+
+        //var user = await _unitOfWork.Accounts.GetAsync()
+
         if (dto.SearchTerm != null)
         {
             students = await _unitOfWork.Accounts.GetAllAsync(

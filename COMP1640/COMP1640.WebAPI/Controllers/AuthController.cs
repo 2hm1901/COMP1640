@@ -42,7 +42,7 @@ namespace COMP1640.WebAPI.Controllers
             var claims = new List<Claim>
             {
                 new Claim(ClaimTypes.Name, logInModel.Email),
-                new Claim(ClaimTypes.Role, "User")
+                new Claim(ClaimTypes.Role, user.Role.ToString())
             };
             var token = _tokenService.GenerateAccessToken(claims);
             var refreshToken = _tokenService.GenerateRefreshToken();
@@ -54,10 +54,14 @@ namespace COMP1640.WebAPI.Controllers
 
             return Ok(new AuthenticatedResponse
             {
+                Id = user.Id,
+                FirstName = user.FirstName,
+                LastName = user.LastName,
                 Token = token,
                 RefreshToken = refreshToken,
                 Email = user.Email,
-                Avatar = user.Avatar
+                Avatar = user.Avatar,
+                Role = user.Role.ToString(),
             });
         }
 

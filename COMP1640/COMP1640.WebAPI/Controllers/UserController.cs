@@ -89,28 +89,14 @@ public class UserController : Controller
         //    dto.Avatar = $"/images/{avatar.FileName}"; // Store the relative path to the image
         //}
 
-        await _userService.CreateUser(dto);
-        //return Ok();
+        bool isUserExisting = await _userService.CreateUser(dto);
 
-        // Generate refresh token
-        var claims = new List<Claim>
+        if (!isUserExisting)
         {
-            new Claim(ClaimTypes.Name, dto.Email),
-            new Claim(ClaimTypes.Role, "User")
-        };
-        var refreshToken = _tokenService.GenerateRefreshToken();
+            return BadRequest("User already exists");
+        }
 
-        // Save refresh token to the user (implementation not shown here)
-        var user = await _userService.AuthenticateUser(dto.Email, dto.Password);
-        await _userService.SaveRefreshToken(user.Id, refreshToken);
-
-        return Ok(new AuthenticatedResponse
-        {
-            Token = _tokenService.GenerateAccessToken(claims),
-            RefreshToken = refreshToken,
-            Email = user.Email,
-            Avatar = user.Avatar
-        });
+        return Ok();
     }
 
 

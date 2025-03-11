@@ -8,6 +8,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using Models.Accounts;
 using Models.Core;
+using Models.Emails;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Security.Cryptography;
@@ -42,12 +43,23 @@ namespace BusinessLogic
             return _mapper.Map<UserDetailVM>(user);
         }
 
-        public async Task CreateUser(CreateUserDto dto)
+        public async Task<bool> CreateUser(CreateUserDto dto)
         {
+            // Check if user already existed
+            var existingUser = await _unitOfWork.Accounts.GetAsync(u => u.Email == dto.Email);
+
+            if (existingUser != null)
+            {
+                return false;
+            } 
+
             var user = _mapper.Map<Account>(dto);
             user.Password = HashPassword(dto.Password);
+            user.Role = Role.STUDENT;
             await _unitOfWork.Accounts.AddAsync(user);
             await _unitOfWork.SaveAsync();
+
+            return true;
         }
 
         public async Task UpdateUser(UpdateUserDto dto)

@@ -1,19 +1,26 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { AuthInfo, AuthPayload } from "../../models/auth.interface";
+import { AuthPayload } from "../../models/auth.interface";
+import { RoleEnum } from "../../models/app.interface";
 
 interface AuthenticationState {
   isLogin?: boolean;
-  account: AuthInfo;
-  accessToken: string;
+  id: number;
+  token: string;
+  firstName: string;
+  lastName: string;
+  avatar: string;
+  role: RoleEnum;
   refreshToken?: string;
 }
 
 const initialState: AuthenticationState = {
   isLogin: false,
-  account: {
-    id: -1,
-  },
-  accessToken: "",
+  id: -1,
+  token: "",
+  firstName: "",
+  lastName: "",
+  avatar: "",
+  role: RoleEnum.USER
 };
 
 export const authSlice = createSlice({
@@ -22,31 +29,34 @@ export const authSlice = createSlice({
   reducers: {
     login: (state, action: PayloadAction<AuthPayload>) => {
       state.isLogin = true;
-      state.account = action.payload.account;
-      state.accessToken = action.payload.accessToken;
+      state.id = action.payload.id || state.id;
+      state.firstName = action.payload.firstName ?? "";
+      state.lastName = action.payload.lastName ?? "";
+      state.avatar = action.payload.avatar ?? "";
+      state.role = action.payload.role ?? RoleEnum.USER;
+      state.token = action.payload.token ?? "";
       state.refreshToken = action.payload.refreshToken;
     },
     logout: (state) => {
       state.isLogin = false;
-      state.account = initialState.account;
-      state.accessToken = initialState.accessToken;
+      state.id = initialState.id;
+      state.token = initialState.token;
+      state.firstName = initialState.firstName;
+      state.lastName = initialState.lastName;
+      state.avatar = initialState.avatar;
+      state.role = initialState.role;
       state.refreshToken = initialState.refreshToken;
     },
-    setAccessToken: (state, action: PayloadAction<string>) => {
-      state.accessToken = action.payload;
+    setToken: (state, action: PayloadAction<string>) => {
+      state.token = action.payload;
     },
     setRefreshToken: (state, action: PayloadAction<string>) => {
       state.refreshToken = action.payload;
     },
-    updateAvatar: (state, action: PayloadAction<string>) => {
-      if (state.account) {
-        state.account.avatar = action.payload; // Update the avatar field
-      }
-    },
   },
 });
 
-export const { login, logout, setAccessToken, setRefreshToken, updateAvatar } =
+export const { login, logout, setToken, setRefreshToken } =
   authSlice.actions;
 
 export default authSlice.reducer;

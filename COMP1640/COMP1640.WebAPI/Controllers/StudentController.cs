@@ -1,7 +1,10 @@
 ﻿using BusinessLogic;
 using Common.DTOs.StudentDtos;
 using Common.ViewModels.StudentVMs;
+using COMP1640.WebAPI.Attributes;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Models.Core;
 
 namespace COMP1640.WebAPI.Controllers;
 [Route("api/[controller]")]
@@ -16,9 +19,17 @@ public class StudentController : ControllerBase
     }
 
     // Lấy danh sách sinh viên
+
     [HttpGet("get-all-students")]
+    [CustomAuthorize(Role.STAFF)] // Tuỳ từng role
+    //[Authorize] // bắt mình đăng nhập 
     public async Task<IActionResult> GetAllStudents([FromQuery] GetAllStudentsDto dto)
     {
+        // B1: Lấy id người dùng
+        // B2: Xem thử role người dùng đó
+        // B3: Kiểm tra role có được access hay ko
+        // B4: Check true false => 
+
         IEnumerable<StudentVM> students = await _studentService.GetAllStudents(dto);
 
         return Ok(students);

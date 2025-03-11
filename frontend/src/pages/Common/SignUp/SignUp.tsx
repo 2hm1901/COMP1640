@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useCreateUser } from "../../../services/user.service";
 import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 import logo from "../../../assets/images/logo.png";
@@ -7,20 +6,20 @@ import education from "../../../assets/images/Education.png";
 import user from "../../../assets/images/user.png";
 import lock from "../../../assets/images/lock.png";
 import upload from "../../../assets/images/upload.png";
-import { AuthInfo } from "../../../models/auth.interface";
+import { useCreateUser } from "../../../services/user.service";
+import { RegisterPayload } from "../../../models/auth.interface";
 
 function SignUp() {
   const { mutate: createUser } = useCreateUser();
   const navigate = useNavigate();
 
   // State to store form data
-  const [formData, setFormData] = useState<AuthInfo>({
+  const [formData, setFormData] = useState<RegisterPayload>({
     lastName: "",
     firstName: "",
     email: "",
     password: "",
     avatar: undefined,
-    id: 0,
   });
   //For avatar preview
   const [avatarPreview, setAvatarPreview] = useState<string | null>(null);
@@ -52,13 +51,9 @@ function SignUp() {
 
     createUser(formData, {
       onSuccess: () => {
-        setFormData({ lastName: "", firstName: "", email: "", password: "", avatar: undefined, id: 0 }); // Reset form
-        toast.success("User created successfully!");
         navigate("/");
       },
       onError: (error: any) => {
-        const errorMessage = error.response?.data?.message || "Error when creating user!";
-        toast.error(errorMessage);
       },
     });
   };

@@ -7,7 +7,7 @@ import axios, {
 
 interface Configure {
   configure: AxiosRequestConfig;
-  getAccessToken: () => string;
+  getToken: () => string;
   getRefreshToken: () => string;
 }
 
@@ -18,13 +18,13 @@ type Success<ResponseDataT> = (
 
 type Failure = (error: AxiosError) => void;
 
-interface AccessTokenParams {
+interface TokenParams {
   setCondition: (config: AxiosRequestConfig) => boolean;
 }
 
 interface RefreshTokenConfig<ResponseDataT, AxiosDataReturnT> {
   setCondition: (error: AxiosError) => boolean;
-  axiosData: (accessToken: string, refreshToken: string) => AxiosDataReturnT;
+  axiosData: (Token: string, refreshToken: string) => AxiosDataReturnT;
   success: Success<ResponseDataT>;
   failure: Failure;
 }
@@ -33,15 +33,15 @@ const { CancelToken } = axios;
 
 export default class ConfigureAxios {
   private axiosInstance: AxiosInstance;
-  private getAccessToken: () => string;
+  private getToken: () => string;
   private getRefreshToken: () => string;
 
   public constructor({
     configure,
-    getAccessToken,
+    getToken,
     getRefreshToken,
   }: Configure) {
-    this.getAccessToken = getAccessToken;
+    this.getToken = getToken;
     this.getRefreshToken = getRefreshToken;
     this.axiosInstance = axios.create(configure);
   }
@@ -64,18 +64,18 @@ export default class ConfigureAxios {
     };
   };
 
-  public accessToken = ({ setCondition }: AccessTokenParams) => {
+  public Token = ({ setCondition }: TokenParams) => {
     this.axiosInstance.interceptors.request.use((config) => {
       if (!config.url) return config;
 
-      const accessToken = this.getAccessToken();
+      const Token = this.getToken();
 
       if (
         setCondition(config) &&
         !config.headers.Authorization &&
-        accessToken
+        Token
       ) {
-        config.headers.Authorization = `Bearer ${accessToken}`;
+        config.headers.Authorization = `Bearer ${Token}`;
       }
 
       return config;
@@ -92,12 +92,12 @@ export default class ConfigureAxios {
     const { axiosData, success, failure } = config;
 
     try {
-      const accessToken = this.getAccessToken();
+      const Token = this.getToken();
       const refreshToken = this.getRefreshToken();
 
       const res = await this.axiosInstance.post(
         "/Auth/refresh-token",
-        axiosData(accessToken, refreshToken)
+        axiosData(Token, refreshToken)
       );
 
       if (error.config) {
