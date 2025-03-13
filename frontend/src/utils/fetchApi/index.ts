@@ -10,8 +10,8 @@ const axiosInstance = new ConfigureAxios({
     method: "GET",
     timeout: 10000,
   },
-  getAccessToken: () => {
-    return store.getState().auth.accessToken;
+  getToken: () => {
+    return store.getState().auth.token;
   },
   getRefreshToken: () => {
     return store.getState().auth.refreshToken || "";
@@ -20,7 +20,7 @@ const axiosInstance = new ConfigureAxios({
 
 const fetchAPI = axiosInstance.create();
 
-axiosInstance.accessToken({
+axiosInstance.Token({
   setCondition: (config) => {
     return !config.url?.includes("login");
   },
@@ -30,23 +30,27 @@ axiosInstance.refreshToken({
   setCondition(error) {
     return error.response?.status === 401;
   },
-  axiosData(accessToken, refreshToken) {
+  axiosData(Token, refreshToken) {
     return {
-      accessToken,
+      Token,
       refreshToken,
     };
   },
   success: (response, config) => {
     store.dispatch(
       login({
-        account: store.getState().auth.account,
-        accessToken: response.data.accessToken,
+        id: response.data.id,
+        firstName: response.data.firstName,
+        lastName: response.data.lastName,
+        avatar: response.data.avatar,
+        role: response.data.role,
+        token: response.data.Token,
         refreshToken: response.data.refreshToken,
       })
     );
 
     if (config.headers) {
-      config.headers["Authorization"] = `Bearer ${response.data.accessToken}`;
+      config.headers["Authorization"] = `Bearer ${response.data.Token}`;
     }
   },
   failure: (error) => {

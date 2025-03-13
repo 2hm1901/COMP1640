@@ -4,7 +4,7 @@ import storage from "redux-persist/lib/storage";
 import { persistStore, persistReducer } from "redux-persist";
 
 const persist = {
-  key: "root",
+  key: "comp",
   storage,
   whitelist: ["auth"],
 };
