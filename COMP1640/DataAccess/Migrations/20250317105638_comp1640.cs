@@ -3,10 +3,12 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
+#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
+
 namespace DataAccess.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialUserData : Migration
+    public partial class comp1640 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -22,7 +24,7 @@ namespace DataAccess.Migrations
                     Email = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: true),
                     Password = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: true),
                     Avatar = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    RefreshToken = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    RefreshToken = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     RefreshTokenExpiryTime = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Role = table.Column<int>(type: "int", nullable: false),
                     AccountStatus = table.Column<int>(type: "int", nullable: false),
@@ -228,6 +230,16 @@ namespace DataAccess.Migrations
                         column: x => x.OwnerId,
                         principalTable: "Accounts",
                         principalColumn: "Id");
+                });
+
+            migrationBuilder.InsertData(
+                table: "Accounts",
+                columns: new[] { "Id", "AccountStatus", "Avatar", "CreatedBy", "CreatedDate", "Email", "FirstName", "LastName", "Password", "RefreshToken", "RefreshTokenExpiryTime", "Role", "TeacherId", "UpdatedBy", "UpdatedDate" },
+                values: new object[,]
+                {
+                    { 2, 1, null, 0, new DateTime(2025, 3, 17, 0, 0, 0, 0, DateTimeKind.Local), "jane.smith@example.com", "Jane", "Smith", "flt0CcKtzc9vE3G++ad7eHrq8PFgT+ODBV6GaX8vbrijebiCfhKKC7ch2TBSCYIRzqq3KgcisObTNpFwtK8IuQ==", null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, null, 0, new DateTime(2025, 3, 17, 0, 0, 0, 0, DateTimeKind.Local) },
+                    { 3, 1, null, 0, new DateTime(2025, 3, 17, 0, 0, 0, 0, DateTimeKind.Local), "alice.johnson@example.com", "Alice", "Johnson", "flt0CcKtzc9vE3G++ad7eHrq8PFgT+ODBV6GaX8vbrijebiCfhKKC7ch2TBSCYIRzqq3KgcisObTNpFwtK8IuQ==", null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, null, 0, new DateTime(2025, 3, 17, 0, 0, 0, 0, DateTimeKind.Local) },
+                    { 1, 1, null, 0, new DateTime(2025, 3, 17, 0, 0, 0, 0, DateTimeKind.Local), "john.doe@example.com", "John", "Doe", "flt0CcKtzc9vE3G++ad7eHrq8PFgT+ODBV6GaX8vbrijebiCfhKKC7ch2TBSCYIRzqq3KgcisObTNpFwtK8IuQ==", null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 3, 2, 0, new DateTime(2025, 3, 17, 0, 0, 0, 0, DateTimeKind.Local) }
                 });
 
             migrationBuilder.CreateIndex(

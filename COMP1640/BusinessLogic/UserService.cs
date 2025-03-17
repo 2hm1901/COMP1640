@@ -13,6 +13,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
+using Utility;
 
 namespace BusinessLogic
 {
@@ -54,7 +55,7 @@ namespace BusinessLogic
             } 
 
             var user = _mapper.Map<Account>(dto);
-            user.Password = HashPassword(dto.Password);
+            user.Password = PasswordUtil.HashPassword(dto.Password);
             user.Role = Role.STUDENT;
             await _unitOfWork.Accounts.AddAsync(user);
             await _unitOfWork.SaveAsync();
@@ -91,7 +92,7 @@ namespace BusinessLogic
         public async Task<Account> AuthenticateUser(string email, string password)
         {
             var user = await _unitOfWork.Accounts.GetAsync(u => u.Email == email);
-            if (user == null || !VerifyPasswordHash(password, user.Password))
+            if (user == null || !PasswordUtil.VerifyPasswordHash(password, user.Password))
             {
                 _logger.LogWarning("Authentication failed for email: {Email}", email);
                 return null;
@@ -99,36 +100,6 @@ namespace BusinessLogic
 
             _logger.LogInformation("User authenticated successfully: {Email}", email);
             return user;
-        }
-
-        private string HashPassword(string password)
-        {
-            var key = _configuration["Jwt:Key"];
-            if (string.IsNullOrEmpty(key))
-            {
-                throw new ArgumentNullException(nameof(key), "Jwt:Key configuration value is missing.");
-            }
-
-            using (var hmac = new HMACSHA512(Encoding.UTF8.GetBytes(key)))
-            {
-                var hash = hmac.ComputeHash(Encoding.UTF8.GetBytes(password));
-                return Convert.ToBase64String(hash);
-            }
-        }
-
-        private bool VerifyPasswordHash(string password, string storedHash)
-        {
-            var key = _configuration["Jwt:Key"];
-            if (string.IsNullOrEmpty(key))
-            {
-                throw new ArgumentNullException(nameof(key), "Jwt:Key configuration value is missing.");
-            }
-
-            using (var hmac = new HMACSHA512(Encoding.UTF8.GetBytes(key)))
-            {
-                var computedHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(password));
-                return storedHash == Convert.ToBase64String(computedHash);
-            }
         }
 
         public async Task SaveRefreshToken(int userId, string refreshToken)
@@ -224,6 +195,18 @@ namespace BusinessLogic
             }
 
             return principal;
+        }
+
+        //For logout
+        public async Task InvalidateRefreshToken(int userId)
+        {
+            var user = await _unitOfWork.Accounts.GetByIdAsync(userId);
+            if (user != null)
+            {
+                user.RefreshToken = null;
+                user.RefreshTokenExpiryTime = DateTime.MinValue;
+                await _unitOfWork.SaveAsync();
+            }
         }
     }
 }

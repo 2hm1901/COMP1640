@@ -7,8 +7,8 @@
 // import { AuthPayload } from "../models/auth.interface";
 // import fetchAPI from "../utils/fetchApi";
 
-import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { createUser } from "../apis/auth.api";
+import { useMutation, useQueryClient, useQuery } from "@tanstack/react-query";
+import { createUser, getUserById } from "../apis/auth.api";
 import toast from "react-hot-toast";
 
 // // Get all users
@@ -19,13 +19,13 @@ import toast from "react-hot-toast";
 //     });
 // };
 
-// // Get user by ID
-// export const useUserById = (id: number) => {
-//     return useQuery({
-//         queryKey: ["user", id],
-//         queryFn: () => getUserById(id),
-//     });
-// };
+// Get user by ID
+export const useUserById = (id: number) => {
+    return useQuery({
+        queryKey: ["user", id],
+        queryFn: () => getUserById(id),
+    });
+};
 
 // // Create user
 export const useCreateUser = () => {
