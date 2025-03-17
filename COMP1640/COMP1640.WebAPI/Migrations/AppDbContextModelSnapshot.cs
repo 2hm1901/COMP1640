@@ -4,19 +4,16 @@ using DataAccess;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace DataAccess.Migrations
+namespace COMP1640.WebAPI.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250205115408_firstinit")]
-    partial class firstinit
+    partial class AppDbContextModelSnapshot : ModelSnapshot
     {
-        /// <inheritdoc />
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -78,6 +75,48 @@ namespace DataAccess.Migrations
                     b.HasIndex("TeacherId");
 
                     b.ToTable("Accounts", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            AccountStatus = 1,
+                            CreatedBy = 0,
+                            CreatedDate = new DateTime(2025, 3, 17, 0, 0, 0, 0, DateTimeKind.Local),
+                            Role = 0,
+                            UpdatedBy = 0,
+                            UpdatedDate = new DateTime(2025, 3, 17, 0, 0, 0, 0, DateTimeKind.Local)
+                        },
+                        new
+                        {
+                            Id = 2,
+                            AccountStatus = 1,
+                            CreatedBy = 0,
+                            CreatedDate = new DateTime(2025, 3, 17, 0, 0, 0, 0, DateTimeKind.Local),
+                            Role = 0,
+                            UpdatedBy = 0,
+                            UpdatedDate = new DateTime(2025, 3, 17, 0, 0, 0, 0, DateTimeKind.Local)
+                        },
+                        new
+                        {
+                            Id = 3,
+                            AccountStatus = 1,
+                            CreatedBy = 0,
+                            CreatedDate = new DateTime(2025, 3, 17, 0, 0, 0, 0, DateTimeKind.Local),
+                            Role = 0,
+                            UpdatedBy = 0,
+                            UpdatedDate = new DateTime(2025, 3, 17, 0, 0, 0, 0, DateTimeKind.Local)
+                        },
+                        new
+                        {
+                            Id = 4,
+                            AccountStatus = 1,
+                            CreatedBy = 0,
+                            CreatedDate = new DateTime(2025, 3, 17, 0, 0, 0, 0, DateTimeKind.Local),
+                            Role = 0,
+                            UpdatedBy = 0,
+                            UpdatedDate = new DateTime(2025, 3, 17, 0, 0, 0, 0, DateTimeKind.Local)
+                        });
                 });
 
             modelBuilder.Entity("Models.Comments.Comment", b =>
@@ -241,6 +280,30 @@ namespace DataAccess.Migrations
                     b.HasIndex("OwnerId");
 
                     b.ToTable("Interactions", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CreatedBy = 0,
+                            CreatedDate = new DateTime(2025, 3, 17, 0, 0, 0, 0, DateTimeKind.Local),
+                            Description = "User A interacted with User B",
+                            OtherAccountId = 2,
+                            OwnerId = 1,
+                            UpdatedBy = 0,
+                            UpdatedDate = new DateTime(2025, 3, 17, 0, 0, 0, 0, DateTimeKind.Local)
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CreatedBy = 0,
+                            CreatedDate = new DateTime(2025, 3, 17, 0, 0, 0, 0, DateTimeKind.Local),
+                            Description = "User C liked User D's post",
+                            OtherAccountId = 4,
+                            OwnerId = 3,
+                            UpdatedBy = 0,
+                            UpdatedDate = new DateTime(2025, 3, 17, 0, 0, 0, 0, DateTimeKind.Local)
+                        });
                 });
 
             modelBuilder.Entity("Models.Meetings.Meeting", b =>

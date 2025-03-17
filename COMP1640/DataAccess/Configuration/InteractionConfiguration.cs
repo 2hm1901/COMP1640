@@ -23,5 +23,22 @@ public class InteractionConfiguration : BaseModelConfiguration<Interaction>
             .WithMany()
             .HasForeignKey(p => p.OtherAccountId)
             .OnDelete(DeleteBehavior.NoAction);
+
+        builder.HasData(
+    new Interaction
+    {
+        Id = 1,
+        Description = "User A interacted with User B",
+        OwnerId = 1,
+        OtherAccountId = 2
+    },
+    new Interaction
+    { 
+        Id= 2,
+        Description = "User C liked User D's post",
+        OwnerId = 3,
+        OtherAccountId = 4
+    }
+ );
     }
 }

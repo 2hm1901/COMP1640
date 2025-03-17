@@ -10,6 +10,7 @@ public class MappingProfile : Profile
     public MappingProfile()
     {
         CreateMap<Interaction, InteractionVM>();
+        CreateMap<Interaction, InteractionDetailVM>();
 
         // Chuyển từ Account sang StudentVM
         CreateMap<Account, StudentVM>()

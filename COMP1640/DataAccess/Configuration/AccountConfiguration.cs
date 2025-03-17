@@ -33,5 +33,24 @@ public sealed class AccountConfiguration : BaseModelConfiguration<Account>
             .WithOne(p => p.Teacher)
             .HasForeignKey(p => p.TeacherId)
             .OnDelete(DeleteBehavior.NoAction);
+
+        builder.HasData(
+        new Account
+        {
+            Id = 1,
+        },
+        new Account
+        {
+            Id = 2,
+        },
+         new Account
+         {
+             Id = 3,
+         },
+        new Account
+        {
+            Id = 4,
+        }
+    );
     }
 }
