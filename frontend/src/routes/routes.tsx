@@ -5,6 +5,8 @@ import Blog from "../pages/Common/Blog/Blog";
 import StudentManagement from "../pages/Staff/StudentManagement/StudentManagement";
 import Chat from "../pages/Common/Chat/Chat"
 import StudentDashboard from "../pages/Common/Dashboard/StudentDashboard";
+import SignUp from "../pages/Common/SignUp/SignUp";
+import Login from "../pages/Common/Login/Login";
 
 const router = createBrowserRouter([
   {
@@ -14,6 +16,14 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Blog />,
+      },
+      {
+        path: ROUTE_PATH.SIGNUP,
+        element: <SignUp />,
+      },
+      {
+        path: ROUTE_PATH.LOGIN,
+        element: <Login />,
       },
       {
         path: ROUTE_PATH.STUDENT_MANAGEMENT,

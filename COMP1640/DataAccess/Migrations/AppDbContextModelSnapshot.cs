@@ -59,7 +59,8 @@ namespace DataAccess.Migrations
                         .HasColumnType("nvarchar(200)");
 
                     b.Property<string>("RefreshToken")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
 
                     b.Property<DateTime>("RefreshTokenExpiryTime")
                         .HasColumnType("datetime2");
@@ -81,6 +82,54 @@ namespace DataAccess.Migrations
                     b.HasIndex("TeacherId");
 
                     b.ToTable("Accounts", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            AccountStatus = 1,
+                            CreatedBy = 0,
+                            CreatedDate = new DateTime(2025, 3, 17, 0, 0, 0, 0, DateTimeKind.Local),
+                            Email = "john.doe@example.com",
+                            FirstName = "John",
+                            LastName = "Doe",
+                            Password = "flt0CcKtzc9vE3G++ad7eHrq8PFgT+ODBV6GaX8vbrijebiCfhKKC7ch2TBSCYIRzqq3KgcisObTNpFwtK8IuQ==",
+                            RefreshTokenExpiryTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Role = 3,
+                            TeacherId = 2,
+                            UpdatedBy = 0,
+                            UpdatedDate = new DateTime(2025, 3, 17, 0, 0, 0, 0, DateTimeKind.Local)
+                        },
+                        new
+                        {
+                            Id = 2,
+                            AccountStatus = 1,
+                            CreatedBy = 0,
+                            CreatedDate = new DateTime(2025, 3, 17, 0, 0, 0, 0, DateTimeKind.Local),
+                            Email = "jane.smith@example.com",
+                            FirstName = "Jane",
+                            LastName = "Smith",
+                            Password = "flt0CcKtzc9vE3G++ad7eHrq8PFgT+ODBV6GaX8vbrijebiCfhKKC7ch2TBSCYIRzqq3KgcisObTNpFwtK8IuQ==",
+                            RefreshTokenExpiryTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Role = 2,
+                            UpdatedBy = 0,
+                            UpdatedDate = new DateTime(2025, 3, 17, 0, 0, 0, 0, DateTimeKind.Local)
+                        },
+                        new
+                        {
+                            Id = 3,
+                            AccountStatus = 1,
+                            CreatedBy = 0,
+                            CreatedDate = new DateTime(2025, 3, 17, 0, 0, 0, 0, DateTimeKind.Local),
+                            Email = "alice.johnson@example.com",
+                            FirstName = "Alice",
+                            LastName = "Johnson",
+                            Password = "flt0CcKtzc9vE3G++ad7eHrq8PFgT+ODBV6GaX8vbrijebiCfhKKC7ch2TBSCYIRzqq3KgcisObTNpFwtK8IuQ==",
+                            RefreshTokenExpiryTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Role = 1,
+                            UpdatedBy = 0,
+                            UpdatedDate = new DateTime(2025, 3, 17, 0, 0, 0, 0, DateTimeKind.Local)
+                        });
                 });
 
             modelBuilder.Entity("Models.Comments.Comment", b =>

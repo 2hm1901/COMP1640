@@ -2,11 +2,13 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Models.Accounts;
+using Models.Core;
+using Utility;
 
 namespace DataAccess.Configuration;
 public sealed class AccountConfiguration : BaseModelConfiguration<Account>
 {
-    public void Configure(EntityTypeBuilder<Account> builder)
+    public override void Configure(EntityTypeBuilder<Account> builder)
     //public override void Configure(EntityTypeBuilder<Account> builder)
     {
         base.Configure(builder);
@@ -38,5 +40,39 @@ public sealed class AccountConfiguration : BaseModelConfiguration<Account>
             .WithOne(p => p.Teacher)
             .HasForeignKey(p => p.TeacherId)
             .OnDelete(DeleteBehavior.NoAction);
+
+        builder.HasData(
+            new Account
+            {
+                Id = 1,
+                FirstName = "John",
+                LastName = "Doe",
+                Email = "john.doe@example.com",
+                Password = PasswordUtil.HashPassword("123456"),
+                Role = Role.STUDENT,
+                AccountStatus = AccountStatus.ACTIVE,
+                TeacherId = 2 // Assuming teacher with Id 2 exists
+            },
+            new Account
+            {
+                Id = 2,
+                FirstName = "Jane",
+                LastName = "Smith",
+                Email = "jane.smith@example.com",
+                Password = PasswordUtil.HashPassword("123456"),
+                Role = Role.TEACHER,
+                AccountStatus = AccountStatus.ACTIVE
+            },
+            new Account
+            {
+                Id = 3,
+                FirstName = "Alice",
+                LastName = "Johnson",
+                Email = "alice.johnson@example.com",
+                Password = PasswordUtil.HashPassword("123456"),
+                Role = Role.STAFF,
+                AccountStatus = AccountStatus.ACTIVE
+            }
+        );
     }
 }

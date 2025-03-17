@@ -1,7 +1,7 @@
 import { AxiosResponse } from "axios";
 import fetchAPI from "../utils/fetchApi";
 import createFormData from "../utils/formDataUtil";
-import { LoginResponse, RegisterPayload } from "../models/auth.interface";
+import { LoginResponse, RegisterPayload, GetUserById } from "../models/auth.interface";
 
 
 export const loginByEmail = async ({
@@ -24,6 +24,14 @@ export const refreshToken = async (refreshToken: string) => {
     url: "/Auth/refresh",
     method: "post",
     data: { refreshToken },
+  });
+  return response;
+};
+
+export const logout = async () => {
+  const response: AxiosResponse<string> = await fetchAPI.request({
+    url: "/Auth/logout",
+    method: "post",
   });
   return response;
 };
@@ -56,14 +64,14 @@ export const createUser = async (user: RegisterPayload) => {
 //   return response.data;
 // };
 
-// export const getUserById = async (id: number) => {
-//   const response: AxiosResponse<AuthInfo> = await fetchAPI.request({
-//     url: `/User/get-user-by-id/${id}`,
-//     method: "get",
-//   });
+export const getUserById = async (id: number) => {
+  const response: AxiosResponse<GetUserById> = await fetchAPI.request({
+    url: `/User/get-user-by-id/${id}`,
+    method: "get",
+  });
 
-//   return response.data;
-// };
+  return response.data;
+};
 
 // export const updateUser = async (user: AuthInfo) => {
 //   const response: AxiosResponse<string> = await fetchAPI.request({
