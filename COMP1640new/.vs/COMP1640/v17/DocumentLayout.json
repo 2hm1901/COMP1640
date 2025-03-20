@@ -1,0 +1,265 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\MINH\\Desktop\\COMP1640 Git\\COMP1640\\COMP1640new\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{BC0427F3-CC23-4F75-A3F8-44D637536FE0}|COMP1640\\COMP1640.csproj|c:\\users\\minh\\desktop\\comp1640 git\\comp1640\\comp1640new\\comp1640\\views\\shared\\_layoutteacher.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BC0427F3-CC23-4F75-A3F8-44D637536FE0}|COMP1640\\COMP1640.csproj|solutionrelative:comp1640\\views\\shared\\_layoutteacher.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC0427F3-CC23-4F75-A3F8-44D637536FE0}|COMP1640\\COMP1640.csproj|c:\\users\\minh\\desktop\\comp1640 git\\comp1640\\comp1640new\\comp1640\\views\\shared\\_layoutstaff.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BC0427F3-CC23-4F75-A3F8-44D637536FE0}|COMP1640\\COMP1640.csproj|solutionrelative:comp1640\\views\\shared\\_layoutstaff.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC0427F3-CC23-4F75-A3F8-44D637536FE0}|COMP1640\\COMP1640.csproj|c:\\users\\minh\\desktop\\comp1640 git\\comp1640\\comp1640new\\comp1640\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BC0427F3-CC23-4F75-A3F8-44D637536FE0}|COMP1640\\COMP1640.csproj|solutionrelative:comp1640\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC0427F3-CC23-4F75-A3F8-44D637536FE0}|COMP1640\\COMP1640.csproj|c:\\users\\minh\\desktop\\comp1640 git\\comp1640\\comp1640new\\comp1640\\views\\staff\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BC0427F3-CC23-4F75-A3F8-44D637536FE0}|COMP1640\\COMP1640.csproj|solutionrelative:comp1640\\views\\staff\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC0427F3-CC23-4F75-A3F8-44D637536FE0}|COMP1640\\COMP1640.csproj|c:\\users\\minh\\desktop\\comp1640 git\\comp1640\\comp1640new\\comp1640\\views\\teacher\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BC0427F3-CC23-4F75-A3F8-44D637536FE0}|COMP1640\\COMP1640.csproj|solutionrelative:comp1640\\views\\teacher\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC0427F3-CC23-4F75-A3F8-44D637536FE0}|COMP1640\\COMP1640.csproj|c:\\users\\minh\\desktop\\comp1640 git\\comp1640\\comp1640new\\comp1640\\views\\teacher\\document.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BC0427F3-CC23-4F75-A3F8-44D637536FE0}|COMP1640\\COMP1640.csproj|solutionrelative:comp1640\\views\\teacher\\document.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC0427F3-CC23-4F75-A3F8-44D637536FE0}|COMP1640\\COMP1640.csproj|c:\\users\\minh\\desktop\\comp1640 git\\comp1640\\comp1640new\\comp1640\\views\\teacher\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BC0427F3-CC23-4F75-A3F8-44D637536FE0}|COMP1640\\COMP1640.csproj|solutionrelative:comp1640\\views\\teacher\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC0427F3-CC23-4F75-A3F8-44D637536FE0}|COMP1640\\COMP1640.csproj|c:\\users\\minh\\desktop\\comp1640 git\\comp1640\\comp1640new\\comp1640\\controllers\\teachercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC0427F3-CC23-4F75-A3F8-44D637536FE0}|COMP1640\\COMP1640.csproj|solutionrelative:comp1640\\controllers\\teachercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC0427F3-CC23-4F75-A3F8-44D637536FE0}|COMP1640\\COMP1640.csproj|c:\\users\\minh\\desktop\\comp1640 git\\comp1640\\comp1640new\\comp1640\\views\\student\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BC0427F3-CC23-4F75-A3F8-44D637536FE0}|COMP1640\\COMP1640.csproj|solutionrelative:comp1640\\views\\student\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC0427F3-CC23-4F75-A3F8-44D637536FE0}|COMP1640\\COMP1640.csproj|c:\\users\\minh\\desktop\\comp1640 git\\comp1640\\comp1640new\\comp1640\\viewmodels\\studentmessageviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC0427F3-CC23-4F75-A3F8-44D637536FE0}|COMP1640\\COMP1640.csproj|solutionrelative:comp1640\\viewmodels\\studentmessageviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC0427F3-CC23-4F75-A3F8-44D637536FE0}|COMP1640\\COMP1640.csproj|c:\\users\\minh\\desktop\\comp1640 git\\comp1640\\comp1640new\\comp1640\\controllers\\studentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC0427F3-CC23-4F75-A3F8-44D637536FE0}|COMP1640\\COMP1640.csproj|solutionrelative:comp1640\\controllers\\studentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC0427F3-CC23-4F75-A3F8-44D637536FE0}|COMP1640\\COMP1640.csproj|c:\\users\\minh\\desktop\\comp1640 git\\comp1640\\comp1640new\\comp1640\\viewmodels\\teacherviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC0427F3-CC23-4F75-A3F8-44D637536FE0}|COMP1640\\COMP1640.csproj|solutionrelative:comp1640\\viewmodels\\teacherviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC0427F3-CC23-4F75-A3F8-44D637536FE0}|COMP1640\\COMP1640.csproj|c:\\users\\minh\\desktop\\comp1640 git\\comp1640\\comp1640new\\comp1640\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BC0427F3-CC23-4F75-A3F8-44D637536FE0}|COMP1640\\COMP1640.csproj|solutionrelative:comp1640\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC0427F3-CC23-4F75-A3F8-44D637536FE0}|COMP1640\\COMP1640.csproj|c:\\users\\minh\\desktop\\comp1640 git\\comp1640\\comp1640new\\comp1640\\views\\shared\\_layoutstudent.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BC0427F3-CC23-4F75-A3F8-44D637536FE0}|COMP1640\\COMP1640.csproj|solutionrelative:comp1640\\views\\shared\\_layoutstudent.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 13,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\MINH\\Desktop\\COMP1640 Git\\COMP1640\\COMP1640new\\COMP1640\\Views\\Staff\\Index.cshtml",
+              "RelativeDocumentMoniker": "COMP1640\\Views\\Staff\\Index.cshtml",
+              "ToolTip": "C:\\Users\\MINH\\Desktop\\COMP1640 Git\\COMP1640\\COMP1640new\\COMP1640\\Views\\Staff\\Index.cshtml",
+              "RelativeToolTip": "COMP1640\\Views\\Staff\\Index.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-20T03:01:32.106Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\MINH\\Desktop\\COMP1640 Git\\COMP1640\\COMP1640new\\COMP1640\\Views\\Teacher\\Index.cshtml",
+              "RelativeDocumentMoniker": "COMP1640\\Views\\Teacher\\Index.cshtml",
+              "ToolTip": "C:\\Users\\MINH\\Desktop\\COMP1640 Git\\COMP1640\\COMP1640new\\COMP1640\\Views\\Teacher\\Index.cshtml",
+              "RelativeToolTip": "COMP1640\\Views\\Teacher\\Index.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-20T03:01:14.026Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Document.cshtml",
+              "DocumentMoniker": "C:\\Users\\MINH\\Desktop\\COMP1640 Git\\COMP1640\\COMP1640new\\COMP1640\\Views\\Teacher\\Document.cshtml",
+              "RelativeDocumentMoniker": "COMP1640\\Views\\Teacher\\Document.cshtml",
+              "ToolTip": "C:\\Users\\MINH\\Desktop\\COMP1640 Git\\COMP1640\\COMP1640new\\COMP1640\\Views\\Teacher\\Document.cshtml",
+              "RelativeToolTip": "COMP1640\\Views\\Teacher\\Document.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-20T03:01:13.258Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "TeacherController.cs",
+              "DocumentMoniker": "C:\\Users\\MINH\\Desktop\\COMP1640 Git\\COMP1640\\COMP1640new\\COMP1640\\Controllers\\TeacherController.cs",
+              "RelativeDocumentMoniker": "COMP1640\\Controllers\\TeacherController.cs",
+              "ToolTip": "C:\\Users\\MINH\\Desktop\\COMP1640 Git\\COMP1640\\COMP1640new\\COMP1640\\Controllers\\TeacherController.cs",
+              "RelativeToolTip": "COMP1640\\Controllers\\TeacherController.cs",
+              "ViewState": "AQIAAAcAAAAAAAAAAAAAACUAAAAhAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-20T02:55:02.887Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Dashboard.cshtml",
+              "DocumentMoniker": "C:\\Users\\MINH\\Desktop\\COMP1640 Git\\COMP1640\\COMP1640new\\COMP1640\\Views\\Teacher\\Dashboard.cshtml",
+              "RelativeDocumentMoniker": "COMP1640\\Views\\Teacher\\Dashboard.cshtml",
+              "ToolTip": "C:\\Users\\MINH\\Desktop\\COMP1640 Git\\COMP1640\\COMP1640new\\COMP1640\\Views\\Teacher\\Dashboard.cshtml",
+              "RelativeToolTip": "COMP1640\\Views\\Teacher\\Dashboard.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAA0AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-20T02:54:53.077Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "TeacherViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\MINH\\Desktop\\COMP1640 Git\\COMP1640\\COMP1640new\\COMP1640\\ViewModels\\TeacherViewModel.cs",
+              "RelativeDocumentMoniker": "COMP1640\\ViewModels\\TeacherViewModel.cs",
+              "ToolTip": "C:\\Users\\MINH\\Desktop\\COMP1640 Git\\COMP1640\\COMP1640new\\COMP1640\\ViewModels\\TeacherViewModel.cs",
+              "RelativeToolTip": "COMP1640\\ViewModels\\TeacherViewModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-20T02:54:44.084Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\MINH\\Desktop\\COMP1640 Git\\COMP1640\\COMP1640new\\COMP1640\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "COMP1640\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\MINH\\Desktop\\COMP1640 Git\\COMP1640\\COMP1640new\\COMP1640\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "COMP1640\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACgAAAAVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-20T02:49:23.519Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "_LayoutStaff.cshtml",
+              "DocumentMoniker": "C:\\Users\\MINH\\Desktop\\COMP1640 Git\\COMP1640\\COMP1640new\\COMP1640\\Views\\Shared\\_LayoutStaff.cshtml",
+              "RelativeDocumentMoniker": "COMP1640\\Views\\Shared\\_LayoutStaff.cshtml",
+              "ToolTip": "C:\\Users\\MINH\\Desktop\\COMP1640 Git\\COMP1640\\COMP1640new\\COMP1640\\Views\\Shared\\_LayoutStaff.cshtml",
+              "RelativeToolTip": "COMP1640\\Views\\Shared\\_LayoutStaff.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-20T02:49:30.188Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "_LayoutTeacher.cshtml",
+              "DocumentMoniker": "C:\\Users\\MINH\\Desktop\\COMP1640 Git\\COMP1640\\COMP1640new\\COMP1640\\Views\\Shared\\_LayoutTeacher.cshtml",
+              "RelativeDocumentMoniker": "COMP1640\\Views\\Shared\\_LayoutTeacher.cshtml",
+              "ToolTip": "C:\\Users\\MINH\\Desktop\\COMP1640 Git\\COMP1640\\COMP1640new\\COMP1640\\Views\\Shared\\_LayoutTeacher.cshtml",
+              "RelativeToolTip": "COMP1640\\Views\\Shared\\_LayoutTeacher.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-20T02:50:29.774Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "StudentController.cs",
+              "DocumentMoniker": "C:\\Users\\MINH\\Desktop\\COMP1640 Git\\COMP1640\\COMP1640new\\COMP1640\\Controllers\\StudentController.cs",
+              "RelativeDocumentMoniker": "COMP1640\\Controllers\\StudentController.cs",
+              "ToolTip": "C:\\Users\\MINH\\Desktop\\COMP1640 Git\\COMP1640\\COMP1640new\\COMP1640\\Controllers\\StudentController.cs",
+              "RelativeToolTip": "COMP1640\\Controllers\\StudentController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-20T02:56:21.836Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "StudentMessageViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\MINH\\Desktop\\COMP1640 Git\\COMP1640\\COMP1640new\\COMP1640\\ViewModels\\StudentMessageViewModel.cs",
+              "RelativeDocumentMoniker": "COMP1640\\ViewModels\\StudentMessageViewModel.cs",
+              "ToolTip": "C:\\Users\\MINH\\Desktop\\COMP1640 Git\\COMP1640\\COMP1640new\\COMP1640\\ViewModels\\StudentMessageViewModel.cs",
+              "RelativeToolTip": "COMP1640\\ViewModels\\StudentMessageViewModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAArAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-20T02:56:43.202Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Dashboard.cshtml",
+              "DocumentMoniker": "C:\\Users\\MINH\\Desktop\\COMP1640 Git\\COMP1640\\COMP1640new\\COMP1640\\Views\\Student\\Dashboard.cshtml",
+              "RelativeDocumentMoniker": "COMP1640\\Views\\Student\\Dashboard.cshtml",
+              "ToolTip": "C:\\Users\\MINH\\Desktop\\COMP1640 Git\\COMP1640\\COMP1640new\\COMP1640\\Views\\Student\\Dashboard.cshtml",
+              "RelativeToolTip": "COMP1640\\Views\\Student\\Dashboard.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-20T02:57:34.928Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "_LayoutStudent.cshtml",
+              "DocumentMoniker": "C:\\Users\\MINH\\Desktop\\COMP1640 Git\\COMP1640\\COMP1640new\\COMP1640\\Views\\Shared\\_LayoutStudent.cshtml",
+              "RelativeDocumentMoniker": "COMP1640\\Views\\Shared\\_LayoutStudent.cshtml",
+              "ToolTip": "C:\\Users\\MINH\\Desktop\\COMP1640 Git\\COMP1640\\COMP1640new\\COMP1640\\Views\\Shared\\_LayoutStudent.cshtml",
+              "RelativeToolTip": "COMP1640\\Views\\Shared\\_LayoutStudent.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-20T02:50:20.364Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\MINH\\Desktop\\COMP1640 Git\\COMP1640\\COMP1640new\\COMP1640\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "COMP1640\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\MINH\\Desktop\\COMP1640 Git\\COMP1640\\COMP1640new\\COMP1640\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "COMP1640\\Views\\Home\\Index.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAAUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-20T02:49:50.789Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

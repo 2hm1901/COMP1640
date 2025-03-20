@@ -1,0 +1,12 @@
+﻿@{
+    Layout = "_Layout";
+}
+<div class="container">
+    <h1 class="text-danger">Staff Dashboard</h1>
+    <ul>
+        <li><a asp-controller="Staff" asp-action="Student">Manage Students</a></li>
+        <li><a asp-controller="Staff" asp-action="Teacher">Manage Teachers</a></li>
+    </ul>
+    <hr>
+    @RenderBody()
+</div>

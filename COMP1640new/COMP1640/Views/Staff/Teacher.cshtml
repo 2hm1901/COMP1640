@@ -1,0 +1,61 @@
+﻿@model List<COMP1640.ViewModels.TeacherViewModel>
+
+<div class="container mt-5">
+    <!-- Search Bar -->
+    <div class="card shadow-sm mb-4">
+        <div class="card-body">
+            <form asp-action="Teacher" method="get">
+                <div class="input-group">
+                    <span class="input-group-text bg-white"><i class="fas fa-search"></i></span>
+                    <input type="text"
+                           name="searchQuery"
+                           class="form-control border-start-0"
+                           placeholder="Search by name or email"
+                           value="@ViewBag.SearchQuery">
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Teacher List -->
+    <div class="card shadow-sm">
+        <div class="card-header bg-white py-3">
+            <h5 class="mb-0">List of @Model.Count Teachers</h5>
+        </div>
+        <div class="card-body p-0">
+            @foreach (var teacher in Model)
+            {
+                <div class="p-3 border-bottom">
+                    <div class="row align-items-center">
+                        <div class="col-12 col-md-8">
+                            <div class="d-flex align-items-center">
+                                <div class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center me-3"
+                                     style="width: 45px; height: 45px; flex-shrink: 0;">
+                                    <span>@teacher.FullName.Split(' ').Last().Substring(0, 2).ToUpper()</span>
+                                </div>
+                                <div class="w-100">
+                                    <h6 class="mb-1 fw-bold">@teacher.FullName</h6>
+                                    <div class="text-muted small d-flex flex-wrap gap-3">
+                                        <span><i class="fas fa-envelope me-1"></i> @teacher.Email</span>
+                                        <span><i class="fas fa-users me-1"></i> @teacher.StudentCount students</span>
+                                        <span><i class="fas fa-comment me-1"></i> @teacher.MessageCount messages</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-4 mt-3 mt-md-0">
+                            <div class="d-flex justify-content-md-end">
+                                <a asp-action="AssignStudents"
+                                   asp-route-teacherId="@teacher.Id"
+                                   class="btn btn-outline-primary"
+                                   style="max-width: 200px;">
+                                    Assign Students
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

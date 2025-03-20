@@ -1,0 +1,103 @@
+﻿@model List<COMP1640.ViewModels.StudentViewModel>
+
+<div class="container mt-5">
+        <!-- Search Bar -->
+        <div class="card shadow-sm mb-4">
+            <div class="card-body">
+                <div class="row g-3 align-items-center">
+                    <div class="col-md-6 col-lg-4">
+                        <form asp-action="Student" method="get" id="searchForm">
+                            <div class="input-group">
+                                <span class="input-group-text bg-white"><i class="fas fa-search"></i></span>
+                                <input type="text" 
+                                       name="searchQuery" 
+                                       class="form-control border-start-0" 
+                                       placeholder="Search by name" 
+                                       value="@ViewBag.SearchQuery">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-md-6 col-lg-8 d-flex justify-content-md-end gap-2">
+                        <form asp-action="Student" method="get" class="d-inline">
+                            <input type="hidden" name="searchQuery" value="@ViewBag.SearchQuery" />
+                            <button type="submit" 
+                                    name="withoutTutor" 
+                                    value="@(ViewBag.WithoutTutor == true ? "false" : "true")" 
+                                    class="btn btn-outline-primary @(ViewBag.WithoutTutor == true ? "active" : "")">
+                                <i class="fas fa-user-times me-1"></i> Without Tutor
+                            </button>
+                        </form>
+                        <form asp-action="Student" method="get" class="d-inline">
+                            <input type="hidden" name="searchQuery" value="@ViewBag.SearchQuery" />
+                            <button type="submit" 
+                                    name="noInteraction7d" 
+                                    value="@(ViewBag.NoInteraction7d == true ? "false" : "true")" 
+                                    class="btn btn-outline-primary @(ViewBag.NoInteraction7d == true ? "active" : "")">
+                                <i class="fas fa-clock me-1"></i> No Interaction 7d
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Student List -->
+        <div class="card shadow-sm">
+            <div class="card-header bg-white py-3">
+                <h5 class="mb-0">List of @Model.Count Students</h5>
+            </div>
+            <div class="card-body p-0">
+            @foreach (var student in Model)
+            {
+                        <div class="p-3 border-bottom">
+                            <div class="row align-items-center">
+                                <div class="col-12 col-md-8">
+                                    <div class="d-flex align-items-center">
+                                        <div class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center me-3" 
+                                             style="width: 45px; height: 45px; flex-shrink: 0;">
+                                            <span>@student.FullName.Split(' ').Last().Substring(0, 2).ToUpper()</span>
+                                        </div>
+                                        <div class="w-100">
+                                            <h6 class="mb-1 fw-bold">@student.FullName</h6>
+                                            <div class="text-muted small d-flex flex-wrap gap-3">
+                                                <span><i class="fas fa-envelope me-1"></i> @student.Email</span>
+                                                <span><i class="fas fa-graduation-cap me-1"></i> @student.TutorName</span>
+                                                <span><i class="fas fa-comment me-1"></i> @student.MessageCount messages</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-4 mt-3 mt-md-0">
+                                    <div class="d-flex justify-content-md-end">
+                                        <form asp-action="AssignTutor" method="post" class="w-100" style="max-width: 200px;">
+                                            <input type="hidden" name="studentId" value="@student.Id" />
+                                            <div class="dropdown w-100">
+                                                <button class="btn btn-outline-primary dropdown-toggle w-100 text-start" 
+                                                        type="button" 
+                                                        data-bs-toggle="dropdown" 
+                                                        aria-expanded="false">
+                                            @(string.IsNullOrEmpty(student.TutorName) || student.TutorName == "No Tutor" ? "Assign teacher" : student.TutorName)
+                                                </button>
+                                                <ul class="dropdown-menu w-100">
+                                            @foreach (var teacher in student.AvailableTeachers)
+                                            {
+                                                            <li>
+                                                                <button type="submit" 
+                                                                        name="tutorId" 
+                                                                        value="@teacher.Id" 
+                                                                        class="dropdown-item">
+                                                        @teacher.FullName
+                                                                </button>
+                                                            </li>
+                                            }
+                                                </ul>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+            }
+            </div>
+        </div>
+    </div>

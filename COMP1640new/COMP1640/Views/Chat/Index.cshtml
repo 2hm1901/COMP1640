@@ -1,0 +1,75 @@
+﻿@using System.Security.Claims
+@model List<COMP1640.Models.Message>
+
+    @{
+    var receiverId = "@ViewBag.ReceiverId";
+    }
+
+<div class="chat-container">
+    <div class="message-history">
+        @foreach (var message in Model)
+        {
+            <div class="message @(message.SenderId == User.FindFirst(ClaimTypes.NameIdentifier)?.Value ? "sent" : "received")">
+                <p>@message.Content</p>
+                <small>@message.Timestamp.ToString("g")</small>
+            </div>
+        }
+    </div>
+    <div class="message-input">
+        <input type="text" id="messageInput" />
+        <button id="sendButton">Send</button>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/lib/microsoft-signalr/signalr.min.js"></script>
+    <script>
+        const connection = new signalR.HubConnectionBuilder()
+            .withUrl("/chatHub")
+            .build();
+
+        connection.start().then(() => {
+            console.log("Connected to chat hub");
+        }).catch(err => console.error(err));
+
+        document.getElementById("sendButton").addEventListener("click", function () {
+            const message = document.getElementById("messageInput").value;
+            const receiverId = "@ViewBag.ReceiverId";
+            connection.invoke("SendMessage", receiverId, message)
+                .catch(err => console.error(err));
+            document.getElementById("messageInput").value = "";
+        });
+
+        connection.on("ReceiveMessage", (senderId, receiverId, message) => {
+            const currentUserId = "@User.FindFirst(ClaimTypes.NameIdentifier)?.Value";
+            const currentReceiverId = "@ViewBag.ReceiverId";
+
+            console.log("currentUserId", currentUserId);
+            console.log("currentReceiverId", currentReceiverId);
+            console.log("senderId", senderId);
+            console.log("receiverId", receiverId);
+
+            // Convert all IDs to strings for consistent comparison
+            const senderIdStr = senderId.toString();
+            const receiverIdStr = receiverId.toString();
+            const currentUserIdStr = currentUserId.toString();
+            const currentReceiverIdStr = currentReceiverId.toString();
+
+            // Only display the message if it belongs to the current chat
+            if ((senderIdStr === currentUserIdStr && receiverIdStr === currentReceiverIdStr) ||
+                (senderIdStr === currentReceiverIdStr && receiverIdStr === currentUserIdStr)) {
+
+                console.log("Message belongs to the current chat");
+                const isSender = senderIdStr === currentUserIdStr;
+                const messageHtml = `
+                    <div class="message ${isSender ? 'sent' : 'received'}">
+                        <p>${message}</p>
+                        <small>${new Date().toLocaleString()}</small>
+                    </div>`;
+                document.querySelector(".message-history").innerHTML += messageHtml;
+            } else {
+                console.log("Message does not belong to the current chat");
+            }
+        });
+    </script>
+}

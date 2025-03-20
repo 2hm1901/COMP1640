@@ -1,0 +1,70 @@
+﻿ @model List<COMP1640.ViewModels.StudentMessageViewModel>
+
+<!-- Main Content -->
+<div class="row mt-4 px-4">
+    <!-- Students Section -->
+    <div class="col-md-4">
+        <div class="bg-white p-3 rounded shadow-sm">
+            <h5>Students</h5>
+            <hr>
+
+            @foreach (var student in Model)
+            {
+                <div class="student">
+                    <p>
+                        <strong>@student.StudentName</strong><br>
+                        @student.LastMessage
+                    </p>
+                    <a href="@Url.Action("Index", "Chat", new { userId = student.StudentId })" class="btn btn-sm btn-primary">Chat</a>
+                </div>
+                <hr>
+            }
+
+            @if (!Model.Any())
+            {
+                <p class="text-muted">No students assigned yet.</p>
+            }
+        </div>
+    </div>
+
+    <!-- Upcoming Meetings Section -->
+    <div class="col-md-8">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h5>Upcoming meetings</h5>
+            <button class="btn btn-secondary">Arrange meeting</button>
+        </div>
+
+        <div class="bg-white p-3 rounded shadow-sm mb-3">
+            <h6>COURSE_BUIMINH_KIEMTRABT</h6>
+            <small class="text-muted">6 December 2022, 10:35 AM</small>
+            <hr>
+            <p>Bui Minh</p>
+            <div class="d-flex justify-content-end gap-2">
+                <button class="btn btn-light">Recorded video</button>
+                <button class="btn btn-secondary">Join</button>
+            </div>
+        </div>
+
+        <div class="bg-white p-3 rounded shadow-sm mb-3">
+            <h6>COURSE_BUIMINH_KIEMTRABT</h6>
+            <small class="text-muted">6 December 2022, 10:35 AM</small>
+            <hr>
+            <p>Thi Quynh</p>
+            <div class="d-flex justify-content-end gap-2">
+                <button class="btn btn-light">Recorded video</button>
+                <button class="btn btn-secondary">Join</button>
+            </div>
+        </div>
+
+        <div class="bg-white p-3 rounded shadow-sm">
+            <h6>COURSE_BUIMINH_KIEMTRABT</h6>
+            <small class="text-muted">6 December 2022, 10:35 AM</small>
+            <hr>
+            <p>Thanh Hai</p>
+            <div class="d-flex justify-content-end gap-2">
+                <button class="btn btn-light">Recorded video</button>
+                <button class="btn btn-secondary">Join</button>
+            </div>
+        </div>
+    </div>
+</div>

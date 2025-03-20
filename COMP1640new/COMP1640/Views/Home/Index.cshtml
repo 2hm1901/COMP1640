@@ -1,0 +1,66 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="container text-center mt-5">
+    <div class="row align-items-center">
+        <div class="col-md-6">
+            <div class="container">
+                <h1 class="text-danger">Staff Dashboard</h1>
+                <ul>
+                    <li><a asp-controller="Staff" asp-action="Student">Manage Students</a></li>
+                    <li><a asp-controller="Staff" asp-action="Teacher">Manage Teachers</a></li>
+                </ul>
+                <hr>
+            </div>
+            <div class="container">
+                <h1 class="text-primary">Student Dashboard</h1>
+                <ul>
+                    <li><a asp-controller="Student" asp-action="Dashboard">Dashboard</a></li>
+                    <li><a asp-controller="Student" asp-action="Document">Documents</a></li>
+                </ul>
+                <hr>
+            </div>
+            <div class="container">
+                <h1 class="text-success">Teacher Dashboard</h1>
+                <ul>
+                    <li><a asp-controller="Teacher" asp-action="Dashboard">Dashboard</a></li>
+                    <li><a asp-controller="Teacher" asp-action="Document">Documents</a></li>
+                </ul>
+                <hr>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <img src="https://img.freepik.com/premium-vector/education-supplies-concept-isolated-icon_25030-13387.jpg" class="img-fluid rounded shadow-sm" alt="Welcome Image">
+        </div>
+    </div>
+
+    <hr class="my-5">
+
+    <div class="row mt-5">
+        <div class="col-md-4">
+            <div class="card shadow-sm">
+                <div class="card-body text-center">
+                    <h5 class="card-title text-primary">📚 Easy Learning</h5>
+                    <p class="card-text">Access a variety of educational resources to enhance your knowledge.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card shadow-sm">
+                <div class="card-body text-center">
+                    <h5 class="card-title text-success">👩‍🏫 Expert Teachers</h5>
+                    <p class="card-text">Learn from experienced teachers and mentors to boost your skills.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card shadow-sm">
+                <div class="card-body text-center">
+                    <h5 class="card-title text-danger">💬 Community Support</h5>
+                    <p class="card-text">Engage with students and staff to solve problems and share knowledge.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
